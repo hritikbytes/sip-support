@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Steam Swirl -->
+  <path d="M44 14C42 10 46 7 50 7C54 7 58 10 56 14" stroke="#FFDD00" stroke-width="3.5" stroke-linecap="round"/>
+  
+  <!-- Lid Top Curve -->
+  <path d="M30 27C30 19 40 15 50 15C60 15 70 19 70 27" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Lid Rim -->
+  <rect x="24" y="27" width="52" height="9" rx="4.5" fill="#FFFFFF"/>
+  
+  <!-- Cup Body Fill (Bright Yellow) -->
+  <path d="M30 38L34 84C34 88.5 38 92 43 92H57C62 92 66 88.5 66 84L70 38H30Z" fill="#FFDD00"/>
+  
+  <!-- Cup Wave Detail -->
+  <path d="M30 50C36 47 42 53 50 50C58 47 64 53 70 50V38H30V50Z" fill="#FFE566" opacity="0.7"/>
+  
+  <!-- Cup Outline -->
+  <path d="M30 36L34 84C34 88.5 38 92 43 92H57C62 92 66 88.5 66 84L70 36" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Cup Sleeve / Accent Line -->
+  <path d="M29 56H71" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+</svg>
