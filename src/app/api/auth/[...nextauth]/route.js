@@ -4,33 +4,19 @@ import GoogleProvider from "next-auth/providers/google";
 import User from "@/app/models/User";
 import connectDb from "@/app/lib/db";
 
-const providers = [];
-
-if (process.env.GITHUB_ID && process.env.GITHUB_SECRET) {
-  providers.push(
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    })
-  );
-}
-
-if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
-  providers.push(
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    })
-  );
-}
-
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
-  providers,
-  pages: {
-    signIn: "/login",
-    error: "/login",
-  },
+  providers: [
+    GithubProvider({
+      clientId: process.env.GITHUB_ID || "",
+      clientSecret: process.env.GITHUB_SECRET || "",
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+    }),
+  ],
+
   callbacks: {
     async signIn({ user, account, profile }) {
       try {
