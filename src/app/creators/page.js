@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { fetchAllCreators } from "@/actions/useractions";
 
+export const dynamic = "force-dynamic";
+
 const SPOTLIGHT_CREATORS = [
   {
     name: "Elena Rostova",
