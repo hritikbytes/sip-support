@@ -41,26 +41,27 @@ export const authOptions = {
         if (!currentUser) {
           const baseUsername =
             profile?.login ||
-            user.name?.replace(/\s+/g, "").toLowerCase() ||
+            (user.name ? user.name.replace(/\s+/g, "").toLowerCase() : "") ||
             userEmail.split("@")[0];
-          const username = baseUsername.replace(/[^a-zA-Z0-9]/g, "") || `user_${Date.now()}`;
+          const cleanUsername = baseUsername.replace(/[^a-zA-Z0-9]/g, "") || `user_${Date.now().toString().slice(-4)}`;
 
-          const existingUsername = await User.findOne({ username });
-          const finalUsername = existingUsername ? `${username}_${Date.now().toString().slice(-4)}` : username;
+          const existingUsername = await User.findOne({ username: cleanUsername });
+          const finalUsername = existingUsername ? `${cleanUsername}_${Date.now().toString().slice(-4)}` : cleanUsername;
 
           const newUser = new User({
             email: userEmail,
             username: finalUsername,
-            name: user.name || profile?.name || finalUsername,
+            name: user.name || profile?.name || profile?.login || finalUsername,
             profilePicture: user.image || profile?.avatar_url || "",
           });
           await newUser.save();
         }
         return true;
       } catch (err) {
-        console.error("Error in signIn callback:", err);
+        console.error("CRITICAL: Error in signIn callback (check MONGODB_URI and Network Access):", err);
         return false;
       }
+
     },
     async session({ session }) {
       try {
