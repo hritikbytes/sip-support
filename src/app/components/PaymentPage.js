@@ -7,10 +7,12 @@ import Script from "next/script";
 import { initiate, fetchUser, fetchpayments } from "@/actions/useractions";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { useToast } from "./Toast";
 
 const PaymentContent = ({ username }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { showToast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     message: "",
@@ -59,7 +61,7 @@ const PaymentContent = ({ username }) => {
     }
   }, [searchParams, router, username]);
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -67,10 +69,17 @@ const PaymentContent = ({ username }) => {
     }));
   };
 
+  const copyPageLink = () => {
+    const url = typeof window !== "undefined" ? window.location.href : "";
+    if (!url) return;
+    navigator.clipboard.writeText(url);
+    showToast("Creator page link copied to clipboard! 📋", "success");
+  };
+
   const pay = async (amount, message) => {
     try {
       if (!currentUser?.razorpayId) {
-        alert("This creator has not configured their Razorpay keys yet.");
+        showToast("This creator has not configured their payment keys yet.", "error");
         return;
       }
 
@@ -86,7 +95,7 @@ const PaymentContent = ({ username }) => {
         currency: "INR",
         name: "Sip Support",
         description: `Support @${username}`,
-        image: currentUser.profilePicture || "/avatar.png",
+        image: currentUser.profilePicture || "/logo.svg",
         order_id: order_id,
         callback_url: `${window.location.origin}/api/razorpay`,
         prefill: {
@@ -98,7 +107,7 @@ const PaymentContent = ({ username }) => {
       };
 
       if (!window.Razorpay) {
-        alert("Razorpay SDK is loading, please try again in a moment.");
+        showToast("Payment SDK is loading, please try again in a moment.", "info");
         return;
       }
 
@@ -106,13 +115,13 @@ const PaymentContent = ({ username }) => {
       rzp1.open();
     } catch (error) {
       console.error("Payment error:", error);
-      alert("Payment initiation failed: " + error.message);
+      showToast("Payment failed: " + (error.message || "Unknown error"), "error");
     }
   };
 
   const handlePayment = async () => {
     if (!formData.name || !formData.amount) {
-      alert("Please fill in both your name and amount");
+      showToast("Please enter both your name and amount.", "error");
       return;
     }
     await pay(formData.amount, formData.message);
@@ -120,10 +129,14 @@ const PaymentContent = ({ username }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center text-slate-300 font-semibold">
-        <div className="flex items-center gap-3">
-          <div className="w-6 h-6 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
-          Loading creator profile...
+      <div className="min-h-screen bg-slate-950 pb-24 text-slate-100 font-(family-name:--font-outfit) animate-pulse">
+        <div className="w-full h-[220px] md:h-[300px] bg-slate-900/60 border-b border-slate-900"></div>
+        <div className="max-w-6xl mx-auto px-4 -mt-16 md:-mt-20 flex flex-col md:flex-row items-center gap-6">
+          <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-slate-900 border-4 border-slate-950"></div>
+          <div className="space-y-3 pt-4 text-center md:text-left">
+            <div className="h-8 w-48 bg-slate-900 rounded-xl mx-auto md:mx-0"></div>
+            <div className="h-4 w-28 bg-slate-900/80 rounded-lg mx-auto md:mx-0"></div>
+          </div>
         </div>
       </div>
     );
@@ -207,9 +220,18 @@ const PaymentContent = ({ username }) => {
                 <span className="w-2 h-2 rounded-full bg-pink-400"></span>
                 {payments.length} supporter{payments.length === 1 ? "" : "s"}
               </span>
+
+              <button
+                type="button"
+                onClick={copyPageLink}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-white text-sm font-bold shadow-md border border-slate-800 transition-all cursor-pointer hover:scale-105 active:scale-95"
+              >
+                <span>🔗 Share Profile</span>
+              </button>
             </div>
           </div>
         </div>
+
 
         {/* Main Content Areas */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 w-full">

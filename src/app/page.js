@@ -1,26 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <>
-      {/* Hero Section */}
       <div className="relative flex flex-col items-center justify-center pt-16 md:pt-24 pb-16 md:pb-24 px-4 overflow-hidden">
-        {/* Decorative Ambient Background Glows */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-indigo-600/15 via-purple-600/15 to-pink-600/10 blur-[150px] rounded-full pointer-events-none animate-pulse-slow"></div>
         
-        {/* Hero Logo Pill Badge */}
         <div className="mb-8 inline-flex items-center gap-3 px-4.5 py-2 rounded-full border border-slate-800/80 bg-slate-950/70 backdrop-blur-2xl shadow-2xl transition-all hover:border-slate-700">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.svg" alt="Sip Support Logo" className="w-5 h-5 object-contain" />
           <span className="text-xs md:text-sm font-bold text-slate-200">
-            Empowering 10,000+ Independent Creators
+            Empowering Independent Creators
           </span>
           <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
         </div>
 
-        {/* Hero Main Heading (Single H1) */}
         <div className="max-w-4xl text-center px-2">
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.08] text-white">
             Where{" "}
@@ -35,16 +35,16 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Claim Handle Bar / CTA Section */}
         <div className="mt-10 md:mt-12 w-full max-w-lg px-4 relative z-10">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               const handle = e.target.handle?.value?.trim() || "";
-              window.location.href = handle ? `/login` : "/login";
+              router.push(handle ? `/login?handle=${encodeURIComponent(handle)}` : "/login");
             }}
             className="flex flex-col sm:flex-row items-center gap-3 p-2 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl backdrop-blur-xl"
           >
+
             <div className="flex items-center gap-2 pl-4 py-2 w-full text-slate-400 font-bold text-sm">
               <span className="text-slate-500 font-semibold select-none">sipsupport.com/</span>
               <input

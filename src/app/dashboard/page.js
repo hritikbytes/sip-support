@@ -4,10 +4,12 @@ import React, { useEffect, useState, useRef } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { fetchUser, updateProfile } from "@/actions/useractions";
+import { useToast } from "@/app/components/Toast";
 
 const Dashboard = () => {
   const { data: session, status, update } = useSession();
   const router = useRouter();
+  const { showToast } = useToast();
   const isLoadedRef = useRef(false);
 
   const [form, setForm] = useState({
@@ -53,9 +55,6 @@ const Dashboard = () => {
             });
           }
         })
-        .catch((err) => {
-          console.error("Error fetching user on dashboard:", err);
-        })
         .finally(() => {
           setLoading(false);
         });
@@ -66,10 +65,18 @@ const Dashboard = () => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const copyProfileLink = () => {
+    const handle = form.username || session?.user?.username;
+    if (!handle) return;
+    const url = `${window.location.origin}/${handle}`;
+    navigator.clipboard.writeText(url);
+    showToast(`Profile link copied: ${url}`, "success");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!session?.user?.email) {
-      alert("No active session found");
+      showToast("No active session found. Please log in again.", "error");
       return;
     }
 
@@ -79,9 +86,9 @@ const Dashboard = () => {
     setSaving(false);
 
     if (res.error) {
-      alert(res.error);
+      showToast(res.error, "error");
     } else {
-      alert("Profile updated successfully!");
+      showToast("Profile settings saved successfully!", "success");
       if (update) {
         await update();
       }
@@ -113,6 +120,28 @@ const Dashboard = () => {
           <p className="mt-3 text-lg text-slate-400 font-semibold">
             Manage your creator profile and payment settings
           </p>
+
+          {form.username && (
+            <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-3 p-1.5 px-4 rounded-full bg-slate-900/80 border border-slate-800 backdrop-blur-xl">
+              <span className="text-xs font-bold text-slate-400">
+                Live URL: <span className="text-indigo-400">/{form.username}</span>
+              </span>
+              <button
+                type="button"
+                onClick={copyProfileLink}
+                className="text-xs font-bold px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-full transition-all cursor-pointer flex items-center gap-1.5"
+              >
+                📋 Copy Link
+              </button>
+              <Link
+                href={`/${form.username}`}
+                target="_blank"
+                className="text-xs font-bold px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full transition-all flex items-center gap-1"
+              >
+                View Page ↗
+              </Link>
+            </div>
+          )}
         </div>
 
         <div className="bg-slate-950/60 border border-slate-900 shadow-2xl rounded-3xl overflow-hidden backdrop-blur-xl">
