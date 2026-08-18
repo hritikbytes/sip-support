@@ -404,7 +404,6 @@ For end-to-end testing, Playwright would be a suitable addition for validating t
 These are potential future extensions rather than features currently claimed as implemented.
 
 ---
-
 ## 📊 Project Status
 
 **Status:** Personal project / deployed demo
@@ -412,8 +411,6 @@ These are potential future extensions rather than features currently claimed as 
 Sip Support is an independently developed project created to explore full-stack web development, payment integrations, authentication, database design, and serverless application architecture.
 
 The application is deployed on Vercel for demonstration purposes.
-
-It is not a client application or a commercial platform currently serving external users.
 
 ---
 
@@ -423,4 +420,16 @@ It is not a client application or a commercial platform currently serving extern
 
 Web Developer focused on React, Next.js, TypeScript, and modern full-stack web development.
 
-- **GitHub:** [@hritikbytes](https://
+- **GitHub:** [@hritikbytes](https://github.com/hritikbytes)
+- **LinkedIn:** [linkedin.com/in/hritiksharma0608](https://linkedin.com/in/hritiksharma0608/)
+- **Email:** [hritiksharma.0608@gmail.com](mailto:hritiksharma.0608@gmail.com)
+
+---
+
+<div align="center">
+
+**Built independently by Hritik Sharma**
+
+[Live Demo](https://sip-support.vercel.app) · [GitHub Repository](https://github.com/hritikbytes/sipsupport-patreonsite)
+
+</div>
