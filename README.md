@@ -10,15 +10,15 @@
 [![MongoDB Atlas](https://img.shields.io/badge/MongoDB-Atlas_M0-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/cloud/atlas)
 [![Razorpay](https://img.shields.io/badge/Payment-Razorpay-0C2340?style=for-the-badge&logo=razorpay&logoColor=00BAF2)](https://razorpay.com/)
 
+🔗 **Live Application URL:** [https://sip-support.vercel.app](https://sip-support.vercel.app)
+
 ---
 
 ## 📸 Preview
 
 | Desktop Experience | Mobile Responsive |
 | :---: | :---: |
-| ![Landing Page](./public/logo.svg) <br><sub>*Modern Glassmorphic Dark-Mode Landing Page*</sub> | ![Mobile View](./public/logo.svg) <br><sub>*Mobile-First Fluid Checkout Experience*</sub> |
-
-*(Tip: Place your actual application screenshots in `./screenshots/home.png` and `./screenshots/mobile.png`)*
+| <a href="https://sip-support.vercel.app"><img src="./screenshots/home.png" alt="Sip Support Desktop Preview" width="100%"/></a> <br><sub>*Modern Glassmorphic Dark-Mode Landing Page*</sub> | <a href="https://sip-support.vercel.app"><img src="./screenshots/mobile.png" alt="Sip Support Mobile Preview" width="100%"/></a> <br><sub>*Mobile-First Fluid Checkout Experience*</sub> |
 
 ---
 
