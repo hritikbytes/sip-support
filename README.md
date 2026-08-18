@@ -1,134 +1,419 @@
 # ☕ Sip Support — Creator Crowdfunding & Direct Monetization Platform
 
-> Empowering independent creators to monetize their passion through frictionless micro-donations and direct-to-bank peer-to-peer payouts with zero platform intermediary fees.
+> A creator monetization platform that enables independent creators to receive direct supporter payments through creator-managed payment integrations.
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-sip--support.vercel.app-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://sip-support.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Next.js 16](https://img.shields.io/badge/Next.js-16.1.1-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
-[![React 19](https://img.shields.io/badge/React-19.2.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![TailwindCSS 4](https://img.shields.io/badge/TailwindCSS-v4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![MongoDB Atlas](https://img.shields.io/badge/MongoDB-Atlas_M0-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/cloud/atlas)
-[![Razorpay](https://img.shields.io/badge/Payment-Razorpay-0C2340?style=for-the-badge&logo=razorpay&logoColor=00BAF2)](https://razorpay.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
+[![Razorpay](https://img.shields.io/badge/Payments-Razorpay-0C2340?style=for-the-badge&logo=razorpay&logoColor=00BAF2)](https://razorpay.com/)
 
-🔗 **Live Application URL:** [https://sip-support.vercel.app](https://sip-support.vercel.app)
+**Live application:** https://sip-support.vercel.app
+
+---
+
+## Overview
+
+Sip Support is a full-stack creator monetization platform built with Next.js.
+
+The platform allows creators to create a public profile, connect their payment configuration, and receive payments directly from supporters. The application handles authentication, creator discovery, payment order creation, server-side payment verification, and transaction persistence.
+
+The project was built to explore how a multi-creator payment workflow can be implemented on a serverless web architecture while keeping payment verification and sensitive operations on the server.
 
 ---
 
 ## 📸 Preview
 
-| Desktop Experience | Mobile Responsive |
-| :---: | :---: |
-| <a href="https://sip-support.vercel.app"><img src="./screenshots/home.png" alt="Sip Support Desktop Preview" width="100%"/></a> <br><sub>*Modern Glassmorphic Dark-Mode Landing Page*</sub> | <a href="https://sip-support.vercel.app"><img src="./screenshots/mobile.png" alt="Sip Support Mobile Preview" width="100%"/></a> <br><sub>*Mobile-First Fluid Checkout Experience*</sub> |
+| Desktop | Mobile |
+|:---:|:---:|
+| <a href="https://sip-support.vercel.app"><img src="./screenshots/home.png" alt="Sip Support desktop interface" width="100%"></a> | <a href="https://sip-support.vercel.app"><img src="./screenshots/mobile.png" alt="Sip Support mobile interface" width="100%"></a> |
+| *Desktop landing experience* | *Responsive mobile experience* |
 
 ---
 
-## 🚀 Key Features
+## ✨ Core Features
 
-- **⚡ Direct Creator-to-Bank Payouts:** Implemented dynamic Razorpay gateway routing where each creator connects their own API keys, bypassing platform escrow and eliminating intermediary cut fees.
-- **🔐 Robust OAuth Authentication & Session Management:** Engineered passwordless authentication using NextAuth v4 (GitHub & Google OAuth providers) with automatic user provisioning and edge session synchronizations.
-- **🎨 Glassmorphic Dark-Mode UI & Interactive Micro-Animations:** Designed a bespoke, modern dark-themed interface built on Tailwind CSS v4 and Google Outfit typography, featuring card spotlight hover effects and interactive pulse inputs.
-- **📊 Real-time Creator Dashboard:** Provides creators with comprehensive profile customization (custom handles, cover banners, avatars) and direct integration management for secure payout credentials.
-- **🛡️ Server-Side Cryptographic Signature Verification:** Secured payment webhooks and status verifications using server-side HMAC-SHA256 checksums to prevent transaction spoofing.
-- **🔍 Dynamic Discovery & Spotlight Leaderboards:** Leveraged Next.js dynamic server components (`force-dynamic`) with Mongoose connection pooling for high-performance creator discovery and live leaderboards.
+### Creator Profiles
+
+- Custom creator handles and public profile pages
+- Profile avatars and cover images
+- Creator discovery and spotlight sections
+- Creator-specific payment configuration
+
+### Authentication
+
+- GitHub OAuth authentication
+- Google OAuth authentication
+- Session-based authentication with NextAuth
+- Automatic user provisioning
+
+### Payment Processing
+
+- Razorpay Checkout integration
+- Creator-specific payment routing
+- Server-side order creation
+- Server-side payment signature verification
+- Transaction status validation
+- Payment records persisted in MongoDB
+
+### Dashboard
+
+- Creator profile management
+- Payment integration management
+- Public profile configuration
+- Creator-specific account information
+
+### UI & Experience
+
+- Responsive design across desktop and mobile
+- Dark glassmorphic interface
+- Interactive hover and focus states
+- Micro-interactions and animated UI elements
+- Reusable UI components
+- Mobile-first checkout experience
 
 ---
 
-## 🛠 Tech Stack
+## 🏗️ Architecture
 
-### **Frontend**
-- **Framework:** [Next.js 16 (App Router & Turbopack)](https://nextjs.org/)
-- **Library:** [React 19](https://react.dev/)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) + PostCSS
-- **Icons & Typography:** Heroicons, React Icons, Google Fonts (Outfit)
+The application follows a Next.js full-stack architecture where the frontend, server-side application logic, authentication and API routes are maintained within the same codebase.
 
-### **Backend & Database**
-- **Runtime:** Node.js (Serverless on Vercel Edge/Lambdas)
-- **Database:** [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (Mongoose ODM)
-- **Authentication:** [NextAuth.js v4](https://next-auth.js.org/)
-- **Payment Processing:** [Razorpay Node SDK & Checkout JS](https://razorpay.com/docs/)
+```text
+                        ┌──────────────────────┐
+                        │       Client         │
+                        │  Next.js / React UI   │
+                        └──────────┬───────────┘
+                                   │
+                                   ▼
+                        ┌──────────────────────┐
+                        │   Next.js App Router │
+                        │ Server Components    │
+                        │ API Route Handlers   │
+                        └──────────┬───────────┘
+                                   │
+                 ┌─────────────────┼─────────────────┐
+                 │                 │                 │
+                 ▼                 ▼                 ▼
+          ┌─────────────┐  ┌──────────────┐  ┌─────────────┐
+          │  NextAuth   │  │   MongoDB    │  │  Razorpay   │
+          │    OAuth    │  │    Atlas     │  │   Payments  │
+          └─────────────┘  └──────────────┘  └─────────────┘
+                                   │
+                                   ▼
+                           ┌────────────────┐
+                           │   Deployment   │
+                           │     Vercel     │
+                           └────────────────┘
+```
 
-### **Tools & DevOps**
-- **Hosting:** [Vercel](https://vercel.com/)
-- **Version Control:** Git & GitHub
-- **Package Manager:** npm
+### Payment Flow
+
+```text
+Supporter
+    │
+    ▼
+Creator Profile
+    │
+    ▼
+Payment Request
+    │
+    ▼
+Server-side Order Creation
+    │
+    ▼
+Razorpay Checkout
+    │
+    ▼
+Payment Completed
+    │
+    ▼
+Server-side Signature Verification
+    │
+    ▼
+Transaction Persistence
+    │
+    ▼
+Payment Result
+```
+
+Sensitive payment operations are handled server-side rather than trusting values supplied directly by the client.
 
 ---
 
-## 📦 Installation & Setup
+## 🧠 Engineering Decisions
+
+### 1. Server-side payment verification
+
+Payment responses cannot be treated as trusted client input.
+
+After a payment is completed, the server validates the Razorpay signature using the relevant payment information and secret before accepting the transaction as verified.
+
+This keeps the payment verification logic outside the browser and reduces the risk of accepting manipulated payment responses.
+
+---
+
+### 2. Multi-creator payment routing
+
+Instead of processing every creator's payments through a single application-level payment configuration, the application supports creator-specific payment configurations.
+
+The server determines which creator is receiving the payment and uses the corresponding configuration when creating the payment order.
+
+This keeps the payment flow associated with the individual creator rather than treating all creators as one account.
+
+---
+
+### 3. MongoDB connection management
+
+The application runs on serverless infrastructure where functions may be created and destroyed across separate invocations.
+
+Creating a new MongoDB connection for every request can unnecessarily increase connection usage.
+
+To address this, the application uses a cached Mongoose connection/promise pattern so warm serverless instances can reuse an existing connection instead of repeatedly creating new connections.
+
+---
+
+### 4. Dynamic creator discovery
+
+Creator pages and discovery data are generated dynamically so newly created or updated creator information can be reflected without relying entirely on static build-time data.
+
+The application uses Next.js server-side capabilities and MongoDB queries for this dynamic data.
+
+---
+
+## 🔐 Security Considerations
+
+The project keeps security-sensitive operations on the server where possible.
+
+Current measures include:
+
+- OAuth authentication through NextAuth
+- Server-side payment order creation
+- Server-side Razorpay signature verification
+- Environment variables for secrets and credentials
+- `.env.local` excluded from version control
+- `.env.example` provided for local setup
+- Database access performed through server-side code
+
+> Payment credentials and secrets should never be committed to the repository. Production secrets are configured through the deployment environment.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- **Next.js 16** — App Router
+- **React 19**
+- **Tailwind CSS v4**
+- **Heroicons / React Icons**
+- **Google Fonts — Outfit**
+
+### Backend
+
+- **Next.js Route Handlers**
+- **Node.js**
+- **NextAuth.js v4**
+- **Mongoose**
+
+### Database
+
+- **MongoDB Atlas**
+
+### Payments
+
+- **Razorpay**
+- Razorpay Checkout
+- Razorpay Node SDK
+- Server-side signature verification
+
+### Infrastructure & Tools
+
+- **Vercel**
+- **Git**
+- **GitHub**
+- **npm**
+
+---
+
+## 📁 Project Structure
+
+```text
+sipsupport-patreonsite/
+│
+├── public/
+│   └── assets/
+│
+├── screenshots/
+│   ├── home.png
+│   └── mobile.png
+│
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── dashboard/
+│   │   └── ...
+│   │
+│   ├── components/
+│   ├── lib/
+│   └── ...
+│
+├── .env.example
+├── .gitignore
+├── DEPLOYMENT_GUIDE.md
+├── next.config.mjs
+├── package.json
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm
+- MongoDB Atlas account
+- GitHub OAuth application
+- Google OAuth application (optional)
+- Razorpay account
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/hritikbytes/sipsupport-patreonsite.git
 cd sipsupport-patreonsite
 ```
 
 ### 2. Install dependencies
+
 ```bash
 npm install
 ```
 
-### 3. Configure Environment Variables
-Create a `.env.local` file in the root directory (or copy from `.env.example`):
+### 3. Configure environment variables
+
+Copy the example environment file:
+
 ```bash
 cp .env.example .env.local
 ```
 
-Populate the required credentials in `.env.local`:
-```env
-# MongoDB Atlas Connection
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/sipsupport?retryWrites=true&w=majority
+Configure the required variables:
 
-# NextAuth Configuration
-NEXTAUTH_SECRET=your_generated_32_byte_secret_key
+```env
+MONGODB_URI=your_mongodb_connection_string
+
+NEXTAUTH_SECRET=your_nextauth_secret
 NEXTAUTH_URL=http://localhost:3000
 NEXT_PUBLIC_URL=http://localhost:3000
 
-# GitHub OAuth
-GITHUB_ID=your_github_oauth_client_id
-GITHUB_SECRET=your_github_oauth_client_secret
+GITHUB_ID=your_github_client_id
+GITHUB_SECRET=your_github_client_secret
 
-# Google OAuth (Optional)
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 ```
 
+Payment credentials should be configured according to the application's creator payment integration flow.
+
 ### 4. Start the development server
+
 ```bash
 npm run dev
 ```
 
-Visit [`http://localhost:3000`](http://localhost:3000) in your browser.
+Open:
+
+```text
+http://localhost:3000
+```
 
 ---
 
-## 💡 Technical Challenges & Learning
+## ⚙️ Environment Variables
 
-Architecting a decentralized creator payout system on serverless infrastructure presented two notable technical hurdles:
+| Variable | Purpose | Required |
+|---|---|:---:|
+| `MONGODB_URI` | MongoDB connection | Yes |
+| `NEXTAUTH_SECRET` | NextAuth session encryption | Yes |
+| `NEXTAUTH_URL` | Authentication callback URL | Yes |
+| `NEXT_PUBLIC_URL` | Public application URL | Yes |
+| `GITHUB_ID` | GitHub OAuth client ID | Yes |
+| `GITHUB_SECRET` | GitHub OAuth secret | Yes |
+| `GOOGLE_CLIENT_ID` | Google OAuth client ID | Optional |
+| `GOOGLE_CLIENT_SECRET` | Google OAuth secret | Optional |
 
-1. **Serverless Database Connection Churn:** On Vercel's ephemeral serverless instances, traditional MongoDB connections risk exhausting connection pools across distributed invocations. To solve this, I engineered a cached global Mongoose promise singleton pattern with auto-reset fallback routines to guarantee zero connection leakage during cold starts and warm function reuse.
-2. **Multi-Tenant Gateway Routing & Verification:** Rather than centralizing funds into a platform master account, the platform dynamically fetches each creator's encrypted Razorpay credentials to generate distinct orders at runtime. The payment callback then computes a strict `HMAC-SHA256` digest comparing the incoming `razorpay_order_id`, `razorpay_payment_id`, and the creator's secret key, ensuring ironclad financial integrity and instantaneous transaction validation.
-
----
-
-## 🛣 Roadmap
-
-- [ ] **Subscription & Tiered Memberships:** Introduce monthly recurring supporter subscriptions alongside one-time tips.
-- [ ] **Custom Creator Domains:** Support custom CNAME domain mapping (e.g., `tips.creatorname.com`).
-- [ ] **Supporter Leaderboard & Badges:** Gamified supporter recognition with top-backer badges and custom emojis.
-- [ ] **Multi-Currency Payouts:** Integrate Stripe to support international creators and multi-currency billing.
-- [ ] **Creator Analytics:** Visual graphs tracking earnings, top patrons, and conversion metrics over time.
+Never commit `.env.local` or production credentials to the repository.
 
 ---
 
-## 🤝 Contact
+## 📈 Roadmap
 
-**Developer:** Hritik Sharma  
-- **LinkedIn:** [linkedin.com/in/hritiksharma0608](https://www.linkedin.com/in/hritiksharma0608/)  
-- **GitHub:** [@hritikbytes](https://github.com/hritikbytes)  
+- [ ] Subscription and recurring memberships
+- [ ] Tier-based creator memberships
+- [ ] Custom creator domains
+- [ ] Supporter badges and recognition
+- [ ] Multi-currency payment support
+- [ ] Creator analytics dashboard
+- [ ] Improved transaction history
+- [ ] Automated payment notifications
+
+---
+
+## 🔭 Future Engineering Improvements
+
+The current implementation can be extended with:
+
+- Automated test coverage for critical payment flows
+- End-to-end testing with Playwright
+- CI checks for linting, type checking and builds
+- Improved payment failure and retry handling
+- Rate limiting for sensitive API endpoints
+- Structured application logging
+- Monitoring and error tracking
+- More granular authorization rules
+- Automated database/index optimization
+
+These improvements are intentionally separated from the current feature set rather than presented as implemented functionality.
+
+---
+
+## 📚 Documentation
+
+- [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md) — Deployment and production configuration
+- [` .env.example`](./.env.example) — Environment variable reference
+
+---
+
+## 🗺️ Project Status
+
+**Status:** Active project / production deployment
+
+The application is currently deployed and available through the live demo.
+
+The repository is maintained as a practical full-stack web development project, with ongoing improvements planned around testing, observability, payment workflows and scalability.
+
+---
+
+## 👨‍💻 Developer
+
+**Hritik Sharma**
+
+Web Developer focused on React, Next.js and modern web application development.
+
+- **GitHub:** [@hritikbytes](https://github.com/hritikbytes)
+- **LinkedIn:** [linkedin.com/in/hritiksharma0608](https://www.linkedin.com/in/hritiksharma0608/)
 - **Email:** [hritiksharma.0608@gmail.com](mailto:hritiksharma.0608@gmail.com)
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by <b>Hritik Sharma</b>. If you find this project inspiring, please consider giving it a ⭐!</sub>
+
+**Built by Hritik Sharma**
+
+[Live Demo](https://sip-support.vercel.app) · [GitHub Repository](https://github.com/hritikbytes/sipsupport-patreonsite)
+
 </div>
