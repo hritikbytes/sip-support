@@ -319,7 +319,15 @@ GOOGLE_CLIENT_SECRET=your_google_client_secret
 
 Payment credentials should be configured according to the application's creator payment integration flow.
 
-### 4. Start the development server
+### 4. Seed sample data (Optional)
+
+To populate the database with realistic demo creators and sample donation histories:
+
+```bash
+npm run seed
+```
+
+### 5. Start the development server
 
 ```bash
 npm run dev
