@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { fetchUser, updateProfile } from "@/actions/useractions";
 import { useToast } from "@/app/components/Toast";
 

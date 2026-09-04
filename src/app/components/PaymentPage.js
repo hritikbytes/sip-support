@@ -347,7 +347,7 @@ const PaymentContent = ({ username }) => {
                       type="number"
                       placeholder="Custom Amount"
                       value={formData.amount}
-                      onChange={handleInputChange}
+                      onChange={handleChange}
                       className="font-bold text-lg pl-8"
                     />
                   </div>
@@ -360,7 +360,7 @@ const PaymentContent = ({ username }) => {
                       type="text"
                       placeholder="Your Name or Handle"
                       value={formData.name}
-                      onChange={handleInputChange}
+                      onChange={handleChange}
                       className="font-semibold text-base"
                     />
                   </div>
@@ -373,7 +373,7 @@ const PaymentContent = ({ username }) => {
                       type="textarea"
                       placeholder="A message of support..."
                       value={formData.message}
-                      onChange={handleInputChange}
+                      onChange={handleChange}
                       className="text-base h-28"
                     />
                   </div>

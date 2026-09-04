@@ -14,6 +14,7 @@ export default function Home() {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-indigo-600/15 via-purple-600/15 to-pink-600/10 blur-[150px] rounded-full pointer-events-none animate-pulse-slow"></div>
         
         <div className="mb-8 inline-flex items-center gap-3 px-4.5 py-2 rounded-full border border-slate-800/80 bg-slate-950/70 backdrop-blur-2xl shadow-2xl transition-all hover:border-slate-700">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.svg" alt="Sip Support Logo" className="w-5 h-5 object-contain" />
           <span className="text-xs md:text-sm font-bold text-slate-200">
             Empowering Independent Creators

@@ -130,7 +130,7 @@ const Navbar = () => {
                   <div className="p-[1.5px] rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/25 transition-shadow">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={session?.user?.image || "/avatar.png"}
+                      src={session?.user?.image || "/avatar.svg"}
                       alt=""
                       className="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover border-2 border-slate-950 bg-slate-900"
                     />
@@ -146,7 +146,7 @@ const Navbar = () => {
                 >
                   <div className="px-4 py-4 border-b border-slate-900 flex items-center gap-3">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={session?.user?.image || "/avatar.png"} alt="" className="w-10 h-10 rounded-full object-cover bg-slate-900 border border-slate-800" />
+                    <img src={session?.user?.image || "/avatar.svg"} alt="" className="w-10 h-10 rounded-full object-cover bg-slate-900 border border-slate-800" />
                     <div className="overflow-hidden">
                       <p className="text-sm font-bold text-white truncate">{session?.user?.name || "Creator"}</p>
                       <p className="text-xs text-slate-400 truncate">{session?.user?.email || ""}</p>

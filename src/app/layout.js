@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/SiteFooter";
 import SessionWrapper from "./components/sessionWrapper";
+import { ToastProvider } from "./components/Toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,14 +27,6 @@ const caveat = Caveat({
   weight: ["400", "600", "700"],
 });
 
-import { Pacifico } from "next/font/google";
-
-const pacifico = Pacifico({
-  subsets: ["latin"],
-  variable: "--font-pacifico",
-  weight: ["400"],
-});
-
 export const metadata = {
   title: "Sip Support - Where Creativity Gets Funded",
   description:
@@ -43,13 +36,11 @@ export const metadata = {
   },
 };
 
-import { ToastProvider } from "./components/Toast";
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${pacifico.variable} ${caveat.variable} antialiased overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${caveat.variable} antialiased overflow-x-hidden`}
         suppressHydrationWarning
       >
         <SessionWrapper>
