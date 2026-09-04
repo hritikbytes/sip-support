@@ -79,7 +79,6 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 h-16 md:h-20 flex items-center justify-between">
-        {/* Left: Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8 flex-1">
           {navLinks.map((link) => (
             <Link
@@ -93,7 +92,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Center: Logo */}
         <div className="shrink-0 flex items-center justify-center">
           <Link href="/" className="flex items-center gap-2.5 hover:opacity-90 transition-opacity duration-200 group">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -107,7 +105,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Right: Auth & Profile */}
         <div className="flex items-center justify-end gap-3 md:gap-4 flex-1">
           {session ? (
             <>

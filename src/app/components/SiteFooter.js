@@ -4,13 +4,11 @@ import Link from 'next/link';
 const SiteFooter = () => {
   return (
     <footer className="bg-slate-950 border-t border-slate-900 mt-auto relative overflow-hidden">
-      {/* Decorative backdrop glow */}
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-indigo-500/5 rounded-full blur-[80px] pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto px-4 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-6 gap-10 md:gap-8 pb-12 border-b border-slate-900">
           
-          {/* Logo & Description */}
           <div className="col-span-1 md:col-span-2 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2.5 hover:opacity-90 transition-opacity duration-200 w-fit">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -25,7 +23,6 @@ const SiteFooter = () => {
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
               Fueling creativity, one sip at a time. Empowering creators to do what they love through direct fan support.
             </p>
-            {/* Social Icons */}
             <div className="flex items-center gap-4 mt-2">
               <a href="#" className="text-slate-500 hover:text-white transition-colors p-2 bg-slate-900 rounded-lg border border-slate-800" aria-label="Twitter">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -47,7 +44,6 @@ const SiteFooter = () => {
             </div>
           </div>
 
-          {/* Links Column 1: Product */}
           <div className="flex flex-col gap-4">
             <h3 className="text-white font-bold text-sm uppercase tracking-wider">Product</h3>
             <ul className="flex flex-col gap-2.5 text-sm font-medium text-slate-400">
@@ -58,7 +54,6 @@ const SiteFooter = () => {
             </ul>
           </div>
 
-          {/* Links Column 2: Resources */}
           <div className="flex flex-col gap-4">
             <h3 className="text-white font-bold text-sm uppercase tracking-wider">Resources</h3>
             <ul className="flex flex-col gap-2.5 text-sm font-medium text-slate-400">
@@ -68,7 +63,6 @@ const SiteFooter = () => {
             </ul>
           </div>
 
-          {/* Links Column 3: Company */}
           <div className="flex flex-col gap-4">
             <h3 className="text-white font-bold text-sm uppercase tracking-wider">Company</h3>
             <ul className="flex flex-col gap-2.5 text-sm font-medium text-slate-400">
@@ -78,7 +72,6 @@ const SiteFooter = () => {
             </ul>
           </div>
 
-          {/* Column 4: Newsletter */}
           <div className="col-span-1 flex flex-col gap-4">
             <h3 className="text-white font-bold text-sm uppercase tracking-wider">Newsletter</h3>
             <p className="text-slate-400 text-xs leading-relaxed">
@@ -101,7 +94,6 @@ const SiteFooter = () => {
 
         </div>
 
-        {/* Bottom copyright & legal */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-xs font-medium text-slate-500">
           <div>
             &copy; {new Date().getFullYear()} Sip Support. All rights reserved.

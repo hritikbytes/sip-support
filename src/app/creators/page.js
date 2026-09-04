@@ -37,7 +37,6 @@ export default async function CreatorsPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-(family-name:--font-outfit) pb-24">
-      {/* Header */}
       <div className="relative py-24 px-4 text-center border-b border-slate-900 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-purple-500/10 blur-[140px] rounded-full pointer-events-none"></div>
 
@@ -62,7 +61,6 @@ export default async function CreatorsPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 space-y-20">
-        {/* All Registered Creators Section */}
         {dbUsers.length > 0 && (
           <div>
             <div className="flex items-center justify-between mb-8">
@@ -108,7 +106,6 @@ export default async function CreatorsPage() {
           </div>
         )}
 
-        {/* Creator Spotlight */}
         <div>
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Creator Spotlights</h2>
@@ -162,7 +159,6 @@ export default async function CreatorsPage() {
           </div>
         </div>
 
-        {/* CTA Banner */}
         <div className="bg-gradient-to-r from-indigo-950/60 via-purple-950/60 to-slate-950 border border-slate-800 rounded-[2.5rem] p-10 md:p-16 text-center relative overflow-hidden">
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Ready to start receiving support?</h2>
           <p className="text-slate-400 text-lg max-w-xl mx-auto mb-8 font-medium">

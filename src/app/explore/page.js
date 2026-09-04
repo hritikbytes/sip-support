@@ -90,7 +90,6 @@ export default function ExplorePage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-(family-name:--font-outfit) pb-24">
-      {/* Hero Header */}
       <div className="relative py-20 px-4 text-center border-b border-slate-900 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-indigo-500/10 blur-[130px] rounded-full pointer-events-none"></div>
 
@@ -105,7 +104,6 @@ export default function ExplorePage() {
             Find and directly back the independent artists, developers, and writers shaping the future.
           </p>
 
-          {/* Search Box */}
           <div className="max-w-xl mx-auto relative">
             <input
               type="text"
@@ -126,7 +124,6 @@ export default function ExplorePage() {
         </div>
       </div>
 
-      {/* Category Pills */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <div className="flex items-center gap-2.5 overflow-x-auto pb-4 scrollbar-none">
           {CATEGORIES.map((cat) => (
@@ -144,7 +141,6 @@ export default function ExplorePage() {
           ))}
         </div>
 
-        {/* Creator Grid */}
         {loading ? (
           <div className="flex items-center justify-center py-24 text-slate-400 font-semibold">
             <div className="w-6 h-6 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin mr-3"></div>
@@ -164,7 +160,6 @@ export default function ExplorePage() {
                 className="group bg-slate-950/60 rounded-3xl border border-slate-900 overflow-hidden hover:border-indigo-500/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  {/* Cover Photo */}
                   <div className="h-32 w-full relative overflow-hidden bg-slate-900">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -175,7 +170,6 @@ export default function ExplorePage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
                   </div>
 
-                  {/* Profile Header */}
                   <div className="px-6 pt-0 relative pb-4">
                     <div className="w-20 h-20 rounded-2xl border-4 border-slate-950 overflow-hidden bg-slate-900 -mt-10 shadow-xl relative z-10">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -204,7 +198,6 @@ export default function ExplorePage() {
                   </div>
                 </div>
 
-                {/* Footer Action */}
                 <div className="px-6 pb-6 pt-4 border-t border-slate-900/60 flex items-center justify-between">
                   <span className="text-xs font-semibold text-slate-500">
                     ❤️ {creator.followers} supporters

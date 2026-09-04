@@ -109,7 +109,6 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 relative w-full font-(family-name:--font-outfit) pb-20">
-      {/* Background Decor */}
       <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-indigo-500/5 to-transparent -z-10"></div>
       <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-purple-500/5 rounded-full blur-[90px] pointer-events-none -z-10"></div>
 
@@ -154,7 +153,6 @@ const Dashboard = () => {
 
           <form onSubmit={handleSubmit} className="p-8 md:p-10 space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Name */}
               <div className="space-y-2">
                 <label
                   htmlFor="name"
@@ -173,7 +171,6 @@ const Dashboard = () => {
                 />
               </div>
 
-              {/* Username */}
               <div className="space-y-2">
                 <label
                   htmlFor="username"
@@ -198,7 +195,6 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* Email */}
             <div className="space-y-2">
               <label
                 htmlFor="email"
@@ -224,7 +220,6 @@ const Dashboard = () => {
             <div className="space-y-6">
               <h3 className="text-lg font-bold text-white pl-1 border-l-2 border-indigo-500">Media</h3>
 
-              {/* Profile Picture */}
               <div className="space-y-2">
                 <label
                   htmlFor="profilePicture"
@@ -243,7 +238,6 @@ const Dashboard = () => {
                 />
               </div>
 
-              {/* Cover Picture */}
               <div className="space-y-2">
                 <label
                   htmlFor="coverPicture"
@@ -271,7 +265,6 @@ const Dashboard = () => {
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Razorpay Id */}
                 <div className="space-y-2">
                   <label
                     htmlFor="razorpayId"
@@ -290,7 +283,6 @@ const Dashboard = () => {
                   />
                 </div>
 
-                {/* Razorpay Secret */}
                 <div className="space-y-2">
                   <label
                     htmlFor="razorpaySecret"
@@ -311,7 +303,6 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* Save Button */}
             <div className="pt-6">
               <button
                 type="submit"

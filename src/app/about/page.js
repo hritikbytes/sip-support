@@ -27,7 +27,6 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-(family-name:--font-outfit) pb-24">
-      {/* Hero */}
       <div className="relative py-24 px-4 text-center border-b border-slate-900 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-indigo-500/10 blur-[140px] rounded-full pointer-events-none"></div>
 
@@ -44,9 +43,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Main Content Container */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 space-y-20">
-        {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div className="bg-slate-950/60 rounded-3xl p-8 border border-slate-900 backdrop-blur-xl">
             <p className="text-4xl font-black text-white bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">₹10L+</p>
@@ -62,7 +59,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Pillars */}
         <div>
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-white mb-3">Why Sip Support?</h2>
@@ -104,7 +100,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* FAQs */}
         <div>
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-white mb-3">Frequently Asked Questions</h2>
@@ -137,7 +132,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Bottom CTA */}
         <div className="bg-slate-950/80 border border-slate-800 rounded-[2.5rem] p-10 text-center space-y-6">
           <h2 className="text-3xl font-black text-white">Start your creator journey today</h2>
           <p className="text-slate-400 text-base font-medium max-w-md mx-auto">

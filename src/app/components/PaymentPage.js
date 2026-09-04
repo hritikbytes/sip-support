@@ -176,7 +176,6 @@ const PaymentContent = ({ username }) => {
           </div>
         )}
 
-        {/* Cover & Profile Section */}
         <div className="w-full relative bg-slate-950 border-b border-slate-900 pb-12">
           <div className="w-full h-[200px] md:h-[300px] relative overflow-hidden bg-slate-900">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -232,13 +231,9 @@ const PaymentContent = ({ username }) => {
           </div>
         </div>
 
-
-        {/* Main Content Areas */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 w-full">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-            {/* Left Column (Content & Supporters) */}
             <div className="w-full lg:w-3/5 flex flex-col gap-8">
-              {/* About Section */}
               <div className="bg-slate-950/60 rounded-3xl p-8 md:p-10 shadow-xl border border-slate-900 hover:border-slate-800 transition-all duration-350">
                 <h2 className="text-2xl font-bold text-white mb-4">About</h2>
                 <div className="prose prose-invert">
@@ -251,7 +246,6 @@ const PaymentContent = ({ username }) => {
                 </div>
               </div>
 
-              {/* Supporters List */}
               <div className="bg-slate-950/60 rounded-3xl p-8 md:p-10 shadow-xl border border-slate-900">
                 <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
                   <span className="text-2xl bg-indigo-500/10 text-indigo-400 p-2.5 rounded-xl border border-indigo-500/20 block">
@@ -299,7 +293,6 @@ const PaymentContent = ({ username }) => {
               </div>
             </div>
 
-            {/* Right Column (Payment Form) */}
             <div className="w-full lg:w-2/5">
               <CardSpotlight className="rounded-[2rem] p-8 md:p-10 border border-slate-900 shadow-2xl relative overflow-hidden flex flex-col items-stretch justify-start!">
                 <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gradient-to-bl from-indigo-500/5 to-transparent rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
@@ -316,7 +309,6 @@ const PaymentContent = ({ username }) => {
                 </div>
 
                 <div className="flex flex-col gap-6 w-full relative z-10">
-                  {/* Preset Amount Buttons */}
                   <div className="grid grid-cols-3 gap-3">
                     {[100, 300, 500].map((amt) => (
                       <button
@@ -339,7 +331,6 @@ const PaymentContent = ({ username }) => {
                     ))}
                   </div>
 
-                  {/* Custom Amount Input using InputPulseBorder */}
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1">Amount</label>
                     <InputPulseBorder
@@ -352,7 +343,6 @@ const PaymentContent = ({ username }) => {
                     />
                   </div>
 
-                  {/* Name Input using InputPulseBorder */}
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1">Your Name</label>
                     <InputPulseBorder
@@ -365,7 +355,6 @@ const PaymentContent = ({ username }) => {
                     />
                   </div>
 
-                  {/* Message Input using InputPulseBorder */}
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-wider pl-1">Message (Optional)</label>
                     <InputPulseBorder
@@ -378,7 +367,6 @@ const PaymentContent = ({ username }) => {
                     />
                   </div>
 
-                  {/* Pay/Support Button */}
                   <div className="pt-2">
                     <button
                       type="button"
